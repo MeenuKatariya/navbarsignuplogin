@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+            <!-- <link rel="stylesheet" href="men.html"> -->
+    <style>
+        
+        h1{
+        text-align: center;
+        }
+        #container{
+            margin:auto;
+            border:1px solid black;
+            width:20%;
+            /* height:60%; */
+        }
+        #container>form>input{
+            width:80%;
+            margin-top:-1vw;
+            
+        }
+        #submit{
+            background-color: red;
+            
+            
+            border-radius: 1vw;
+        }
+    </style>
+</head>
+<body>
+    <h1> LOGIN</h1>
+    <div id="container">
+  <form action="" id="form">
+      
+      <p>Email</p>
+      <input type="text" id="email" placeholder="Enter Email"/> <br> <br>
+      
+      <p>Password</p>
+      <input type="password" id="password" placeholder="Enter Password"/><br><br>
+      <input type="submit" id="submit" />
+  </form>
+ </div>
+
+
+</body>
+
+<script>
+
+document.querySelector("form").addEventListener("submit",login);
+     
+      function login(){
+        event.preventDefault();
+        var email=document.querySelector("#email").value;
+      
+
+      var password=document.querySelector("#password").value;
+    
+
+     var datas= JSON.parse(localStorage.getItem("data"));
+     var flag=false;
+     datas.forEach(element => {
+         if(email==element.email && password==(element.password))
+         {
+             flag=true;
+         }
+         
+         
+     });
+     if(flag)
+     {
+         alert("Login succesful")
+         window.location.href="men.html";
+         
+     }else{
+         alert("Wrong password and email")
+     }
+    
+    }
+
+
+</script>
+</html>
